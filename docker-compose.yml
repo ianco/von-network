@@ -113,7 +113,14 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - RUST_LOG=${RUST_LOG}
     volumes:
-      - node1-data:/home/indy/ledger
+      #- node1-data:/home/indy/ledger
+      - /Users/icostanzo/Downloads/ledger/ledger.1:/home/indy/ledger
+    entrypoint: /bin/bash
+    command:
+      [
+        "-c",
+        "sleep 4h"
+      ]
 
   node2:
     image: von-network-base
@@ -130,7 +137,14 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - RUST_LOG=${RUST_LOG}
     volumes:
-      - node2-data:/home/indy/ledger
+      #- node2-data:/home/indy/ledger
+      - /Users/icostanzo/Downloads/ledger/ledger.2:/home/indy/ledger
+    entrypoint: /bin/bash
+    command:
+      [
+        "-c",
+        "sleep 4h"
+      ]
 
   node3:
     image: von-network-base
@@ -147,7 +161,14 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - RUST_LOG=${RUST_LOG}
     volumes:
-      - node3-data:/home/indy/ledger
+      #- node3-data:/home/indy/ledger
+      - /Users/icostanzo/Downloads/ledger/ledger.3:/home/indy/ledger
+    entrypoint: /bin/bash
+    command:
+      [
+        "-c",
+        "sleep 4h"
+      ]
 
   node4:
     image: von-network-base
@@ -164,7 +185,14 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - RUST_LOG=${RUST_LOG}
     volumes:
-      - node4-data:/home/indy/ledger
+      #- node4-data:/home/indy/ledger
+      - /Users/icostanzo/Downloads/ledger/ledger.4:/home/indy/ledger
+    entrypoint: /bin/bash
+    command:
+      [
+        "-c",
+        "sleep 4h"
+      ]
 
 networks:
   von:
@@ -173,8 +201,8 @@ volumes:
   client-data:
   webserver-cli:
   webserver-ledger:
-  node1-data:
-  node2-data:
-  node3-data:
-  node4-data:
+  #node1-data:
+  #node2-data:
+  #node3-data:
+  #node4-data:
   nodes-data:
