@@ -10,6 +10,7 @@ backup/
 *_DeploymentConfig.json
 *_BuildConfig.json
 tmp/
+txns.txt
 
 # External scripts
 genesis_from_files.py

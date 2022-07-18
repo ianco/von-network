@@ -915,6 +915,9 @@ class LedgerCache:
             + "VALUES (?, ?, ?, ?, ?, ?, ?)",
             (ledger_type.value, seq_no, txn_type, txn_id, added, value, terms_id),
         )
+        with open('./txns.txt', 'a') as txn_file:
+            j_value = json.dumps(value)
+            txn_file.write(f"\"{ledger_type.value}\",\"{seq_no}\",\"{txn_type}\",\"{txn_id}\",\"{added}\",{j_value},\"{terms_id}\"\n")
         if latest:
             await self.set_latest(ledger_type, seq_no)
             await self.set_existent(ledger_type, ledger_size or seq_no)
